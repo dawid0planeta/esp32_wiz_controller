@@ -7,8 +7,13 @@
 #include "lwip/sys.h"
 #include <lwip/netdb.h>
 
+// 192.168.50.164 - ceilling0
+// 192.168.50.206 - ceilling1
+// 192.168.50.61  - ceilling2
+// 192.168.50.158 - ceilling3
+// 192.168.50.48  - desk
 
-#define HOST_IP_ADDR "192.168.50.126"
+#define HOST_IP_ADDR "192.168.50.48"
 #define PORT 38899
 
 static const char *TAG = "UDP";

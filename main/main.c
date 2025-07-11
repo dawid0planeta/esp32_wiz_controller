@@ -76,7 +76,7 @@ void app_main(void)
             {
                 if (!is_on)
                 {
-                    udp_socket_send("{\"method\":\"setState\",\"params\":{\"state\":true}}");
+                    // Use temp to turn on so there is no sudden adjustemnt
                     snprintf(cmd_buffer, 256, "{\"method\":\"setPilot\",\"params\":{\"temp\":%lu}}", (uint32_t)temp);
                     is_on = true;
                     udp_socket_send(cmd_buffer);
@@ -87,7 +87,7 @@ void app_main(void)
             }
             prev_brightness = brightness;
         }
-        else if (fabs(temp - prev_temp) > 10.0)
+        else if (fabs(temp - prev_temp) > 15.0)
         { 
             snprintf(cmd_buffer, 256, "{\"method\":\"setPilot\",\"params\":{\"temp\":%lu}}", (uint32_t)temp);
             udp_socket_send(cmd_buffer);
@@ -95,7 +95,7 @@ void app_main(void)
         }
         else
         {
-            vTaskDelay(20 / portTICK_PERIOD_MS);
+            vTaskDelay(10 / portTICK_PERIOD_MS);
         }
     }
 }

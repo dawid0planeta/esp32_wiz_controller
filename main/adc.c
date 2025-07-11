@@ -159,7 +159,7 @@ double adc_get_brightness()
 
 double adc_get_temp()
 {
-    double scaled = (double)ch0_avg * 1.04972375690608 + 2668.50828729282;
+    double scaled = (double)ch0_avg * 1.1878453038674 + 2164.36464088398;
     // ESP_LOGI(TAG, "raw: %lf, scaled: %lf", (double)ch0_avg, scaled);
     return scaled;
 }
